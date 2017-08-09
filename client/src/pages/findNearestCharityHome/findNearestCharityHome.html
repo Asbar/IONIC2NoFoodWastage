@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Find Nearest Charity Homes</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="getMyLocation()"><ion-icon name="location"></ion-icon>Get My Location</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label floating>Name of the Location</ion-label>
+    <ion-input type="text" value=""></ion-input>
+
+  </ion-item>
+  
+  <div #map id="map"></div>
+</ion-content>

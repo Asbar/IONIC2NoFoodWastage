@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Highest Rated Charity Homes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
+  <div *ngFor="let item of mySelectedProfileDetails | async">
+
+  </div>
+  <ion-list>
+    <div *ngFor="let item of anything | async">
+      <ion-card *ngIf="item.isCharityMan">
+        <ion-card-content >
+          <ion-item-sliding >
+            <ion-item (click)="moveto(item.UserName,item.rateLevel,item.profImg)">
+              <ion-avatar item-left>
+                <img [src]="item.profImg" />
+              </ion-avatar>
+              <ion-avatar item-middle>
+                <h2>{{item.UserName}}</h2>
+                <h2>{{item.email}}</h2>
+                <p>{{item.address}}</p>
+              </ion-avatar>
+              <rating [(ngModel)]="item.rateLevel" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
+                nullable="false"></rating>
+            </ion-item>
+            <ion-item-options side="left">
+              <button (click)="chatPage(item.UserName,item.rateLevel,item.profImg)" ion-button color="primary">
+              <ion-icon name="text"></ion-icon>
+              Chat
+            </button>
+              <button ion-button color="secondary">
+                  <ion-icon name="call"></ion-icon>
+                  <a href="tel:+94770192174" ion-button color="secondary">Call me</a>
+                </button>
+            </ion-item-options>
+            <ion-item-options side="right">
+              <button ion-button color="primary">
+              <ion-icon name="mail"></ion-icon>
+              Email
+            </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-card-content>
+      </ion-card>
+      <br>
+    </div>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login to NoFoodWastage App</ion-title>
+  </ion-navbar>
+</ion-header>
+<!-- app/profile/profile.html -->
+  <ion-navbar *navbar>
+    <ion-title>Sign Up</ion-title>
+  </ion-navbar>
+
+ <ion-content class="background">
+	<ion-card>
+		<ion-card-header ion-button-color="primary">
+			SignUp Form
+		</ion-card-header>
+
+		<ion-card-content>
+			<ion-list no-line>
+		<form [formGroup]="signupForm" (ngSubmit)="signupUser()">
+				<ion-item>
+					<ion-label floating >Full Name:</ion-label>
+					<ion-input type="text" formControlName="FullName" ></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label floating >Email:</ion-label>
+					<ion-input type="email" formControlName="Email" ></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label floating >Mobile Number</ion-label>
+					<ion-input type="text" formControlName="MobileNum"  ></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label floating >Password</ion-label>
+					<ion-input type="password" formControlName="Password" ></ion-input>
+				</ion-item>
+				<button type="submit" ion-button block style="background-color: #D9534F;">SignUp</button>
+		</form>
+				<p style="text-align: center">OR</p>
+				<a>Have existing account? <b>Login here</b></a>
+				<button ion-button block outline color="primary" >Login here</button>
+			</ion-list>
+		</ion-card-content>
+	</ion-card>
+</ion-content>

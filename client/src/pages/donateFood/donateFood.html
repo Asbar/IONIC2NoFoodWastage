@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Donate Food</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <p>
+        Request a pickup of leftover food which should share minimum of 50 people if less than 50 then you should be at collection
+        point
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header style="color: white;background-color: #5cb85c">
+      Share Excess Food
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating>My Address</ion-label>
+        <ion-input type="text" [(ngModel)]="address"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col width-50>
+          <ion-item>
+            <ion-label floating>Food Name</ion-label>
+            <ion-input type="text" [(ngModel)]="food"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col width-50>
+          <ion-item>
+            <ion-label floating>Food Qty</ion-label>
+            <ion-input type="number" [(ngModel)]="foodQty"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-item>
+        <ion-icon (click)="takePicture()" name='md-camera' item-left style="color: #55acee"></ion-icon>
+      </ion-item>
+      <!--<img [src]="base64Image" *ngIf="base64Image" />-->
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header color="secondary" style="color: white;background-color: #5cb85c">
+      Cooked Date And Time
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col width-50>
+          <ion-item>
+            <ion-label>Select Date</ion-label>
+            <ion-input type="date" [(ngModel)]="date"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col width-50>
+          <ion-item>
+            <ion-label>Select Time</ion-label>
+            <ion-input type="time" [(ngModel)]="time"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <button (click)="submitDonations()" ion-button color="primary">Submit</button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

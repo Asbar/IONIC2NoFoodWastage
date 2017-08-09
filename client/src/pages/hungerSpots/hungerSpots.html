@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Add a Hunger Spot</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div #map id="map" (click)="mapClick()"></div>
+  <ion-card>
+    <ion-card-header style="background-color: #5cb85c;color: white">
+      Fill the following to add a Hunger Spot
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Location</ion-label>
+          <ion-input type="text" value="" [(ngModel)]="location"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <button ion-button (click)="setCurrentLoc()">Set Location</button>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Name of the Location</ion-label>
+          <ion-input type="text" value="" [(ngModel)]="locationName"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Mobile Number</ion-label>
+          <ion-input type="text" value="" [(ngModel)]="mobile"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Address</ion-label>
+          <ion-input type="text" value="" [(ngModel)]="address"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Num Of People</ion-label>
+          <ion-input type="number" value="" [(ngModel)]="numPeople"></ion-input>
+        </ion-item>
+        <div padding>
+          <button (click)="addCharity()" ion-button color="primary" block>ADD</button>
+        </div>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

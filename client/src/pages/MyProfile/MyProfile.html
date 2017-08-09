@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{profName}}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="SaveAll()" >Save</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <div style="background-color:#428bca;height:25%">
+      <div>
+        <img *ngIf="!base64Image" style="border-radius: 50%;width:50%;margin:0 auto;display: block" [src]="currentUserProf" />
+        <img [src]="base64Image" *ngIf="base64Image" style="border-radius: 50%;width: 50%; margin:0 auto;display: block" />
+        <ion-item *ngIf="!notMyProfile">
+          <ion-icon (click)="takePicture()" name='md-camera' item-left style="color: #55acee"></ion-icon>
+        </ion-item>
+      </div>
+    </div>
+
+    <ion-card-content>
+      <ion-card-title>
+        {{profName}}'s Profile
+      </ion-card-title>
+      <div *ngFor="let item of anything | async">
+        
+      </div>
+      <p>
+        The first Phab project began in 1957, and for nearly 60 years the charity has encouraged and supported children and adults
+        with and without disabilities to make more of life together.
+
+      </p>
+    </ion-card-content>
+    <rating [(ngModel)]="starPoint" [(readOnly)]="!notMyProfile" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
+      starIconName="star" nullable="false"></rating>
+    <ion-item *ngIf="!notMyProfile">
+      <ion-icon name="ios-contact" item-left style="color: #d03e84"></ion-icon>
+      <div item-left> Enable for Charity</div>
+      <ion-toggle [(ngModel)]="isEnableCharity" (ionChange)="addLocation()" item-right></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='md-thumbs-up' item-left style="color: #55acee"></ion-icon>
+      <div item-left> Rated Users </div>
+      <ion-badge item-right>{{ratedUsers}} Users</ion-badge>
+    </ion-item>
+
+    <ion-item *ngIf="notMyProfile">
+      <ion-icon name="ios-contact" item-left style="color: #d03e84"></ion-icon>
+      <button (click)="chatPage(profName,starPoint,tempUrl)" item-right color="secondary" ion-button>Chat With {{profName}}</button>
+    </ion-item>
+  </ion-card>
+  <ion-item>
+    <button ion-button item-left color="secondary">{{address}}</button>
+    <button ion-button (click)="setCurrentLoc()" item-right color="secondary">{{location}}</button>
+  </ion-item>
+
+  <div *ngIf="!notMyProfile" (click)="mapClick()" #map id="map"></div>
+</ion-content>

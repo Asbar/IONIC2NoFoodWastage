@@ -1,0 +1,39 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Login to NoFoodWastage App</ion-title>
+	</ion-navbar>
+</ion-header>
+<!-- app/profile/profile.html -->
+<ion-navbar *navbar>
+	<ion-title>Profile</ion-title>
+</ion-navbar>
+
+<ion-content class="background">
+	<ion-card>
+		<ion-card-header>
+			Login Form
+		</ion-card-header>
+		<ion-card-content>
+			<ion-list no-line>
+				<ion-item>
+					<ion-label floating>Email</ion-label>
+					<ion-input [(ngModel)]="email" type="text"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label floating>Password</ion-label>
+					<ion-input [(ngModel)]="password" type="password"></ion-input>
+				</ion-item>
+				<a>Forgot your login detail? <b>Get help signing in</b></a>
+				<button ion-button block outline color="primary" (click)="login()">Log in</button>
+				<p style="text-align: center">OR</p>
+				<button (click)="loginWithFacebook()" ion-button block color="facebook">
+					<ion-icon name="logo-facebook"></ion-icon> Login with facebook
+				</button>
+				<button ion-button block style="background-color: #D9534F">
+					<ion-icon name="logo-google"></ion-icon> Login with google
+				</button>
+			</ion-list>
+		</ion-card-content>
+	</ion-card>
+	<button class="bottom" (click)="moveSignUp()" ion-button clear full color="secondory">Don't have an account? Sign up</button>
+</ion-content>

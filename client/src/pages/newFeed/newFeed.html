@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>News Feed</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <div *ngFor="let item of newItems">
+            <ion-card>
+                <ion-card-content>
+                    <ion-item-sliding>
+                        <ion-item >
+                            <ion-avatar item-middle>
+                                <h2>{{item.Header}}</h2>
+                                <p>{{item.Desc}}</p>
+                            </ion-avatar>
+                            
+                        </ion-item>
+                       
+                    </ion-item-sliding>
+                </ion-card-content>
+            </ion-card>
+            <br>
+        </div>
+    </ion-list>
+</ion-content>

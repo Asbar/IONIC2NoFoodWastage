@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Chatting</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header style="background-color: #5cb85c;color: white">
+      CHAT BOX
+    </ion-card-header>
+    <ion-card-content>
+      <div>
+        <!--<span [ngClass]="{'my-class': false }">Somthing</span>-->
+        <div *ngFor="let message of allRemoteMessages | async" [(ngClass)]="other" class="messages">
+          <div *ngIf="message.who==UserName">
+          <span>
+            {{ message.text }}
+            </span>
+            </div>
+          <!--<div class="otherMessages">{{message.text}}</div>-->
+          <div *ngIf="message.who==oppProfName" class="message.slide-right">
+            <span class="otherUser">
+                <div >{{message.text}}</div>
+          </span>
+          </div>
+        </div>
+
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer keyboard-attach class="bar-stable item-input-inset">
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Type your Message here</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="myMessages"></ion-input>
+    </ion-item>
+    <button (click)="sendMsg()" style="width:100%" ion-button color="success">
+          Send
+      </button>
+      
+    <button (click)="sendByOtherUser()">
+      Send by other User
+    </button>
+  </ion-list>
+</ion-footer>
